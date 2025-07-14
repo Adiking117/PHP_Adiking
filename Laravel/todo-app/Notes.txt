@@ -1,0 +1,26 @@
+Routing Types (routes/web.php)
+
+PHP server start -> php artisan serve
+
+Blades, Template Inheritance (resources/views/..)
+
+MySQL Connect in ENV(.env)
+
+php artisan migrate -> create database
+
+Model Making -> php artisan make:model ModelName -m
+Migration File generated (databases/migrations/migfile.php)
+Make Columns needed in this file
+after that -> php artisan migrate
+to rollback migration -> php artisan migrate:rollback
+
+Model Factory -> php artisan make:factory FactoryName --model=ModelName
+Database Seeder -> php artisan db:seed
+
+Routing With Database Data (web.php)
+
+To write queries -> php artisan tinker
+
+Making and validating Form to Add Data in Databases : POST route
+
+
