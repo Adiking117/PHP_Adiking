@@ -162,6 +162,39 @@ Route::post("/tasks",function(Request $request) {
 
 
 
+Route::get('/tasks/{id}/update',function($id)  {
+
+  return view('edit',  [
+    'task'=> \App\Models\Task::findOrFail($id)
+  ]);
+
+})->name("tasks.edit");
+
+
+Route::put("/tasks/{id}/update",function(Request $request,$id){
+    $task = Task::findOrFail($id);
+
+    $data = $request->validate([
+        "title"=> "required|max:255",
+        "description"=> "required",
+        "long_description"=> "required",
+    ]);
+
+    $task->title = $data["title"];
+    $task->description = $data["description"];
+    $task->long_description = $data["long_description"];
+
+    $task->save();
+
+    return view("tasks.show",[
+        "task"=>$task
+    ])->with("success","Task updated successfully");
+
+
+})->name("tasks.update");
+
+
+
 Route::fallback(function() {
     return "No enemies";
 });
